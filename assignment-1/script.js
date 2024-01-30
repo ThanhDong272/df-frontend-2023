@@ -129,7 +129,9 @@ btnCreateBook.onclick = (event) => {
 
     const newListBook = [...books, payload];
 
-    console.log("NEW LIST BOOKS: ", newListBook);
+    books = newListBook;
+
+    console.log("NEW LIST BOOKS CREATED: ", newListBook);
 
     const tableBody = document.getElementById("table-body");
     tableBody.innerHTML = "";
@@ -147,7 +149,7 @@ btnDeleteBook.onclick = (event) => {
     (item) => item.bookName !== getBookName.textContent
   );
 
-  console.log("NEW LIST BOOK: ", newListBook);
+  console.log("NEW LIST BOOK DELETED: ", newListBook);
 
   const tableBody = document.getElementById("table-body");
   tableBody.innerHTML = "";
@@ -166,7 +168,7 @@ const handleChangeSearch = () => {
   const inputValue = document.getElementById("searchBook").value;
 
   const newListBook = books.filter((item) =>
-    item.bookName.toLowerCase().includes(inputValue)
+    item.bookName.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   console.log("FILTER LIST BOOK: ", newListBook);
