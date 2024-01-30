@@ -220,10 +220,8 @@ th {
   justify-content: space-between;
 }
 
-.input-container {
-}
-
-.input-container > p {
+label {
+  display: block;
   margin-top: 12px;
 }
 

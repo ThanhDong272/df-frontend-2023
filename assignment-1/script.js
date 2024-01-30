@@ -26,8 +26,6 @@ const btnCloseDelete = document.getElementById("closeDelete");
 const btnCloseCreate = document.getElementById("closeCreate");
 // Handle Change Select Value
 const selectOptions = document.getElementById("topicDropdown");
-// Handle Create Book
-const btnCreateBook = document.getElementById("createBook");
 // Handle Delete Book
 const btnDeleteBook = document.getElementById("deleteBook");
 
@@ -111,37 +109,32 @@ const onChangeSelect = () => {
 selectOptions.onchange = onChangeSelect;
 onChangeSelect();
 
-btnCreateBook.onclick = (event) => {
+// Handle Create Book
+const handleCreateBook = () => {
   const valueName = document.getElementById("inputName").value;
   const valueAuthor = document.getElementById("inputAuthor").value;
   const valueSelected = selectOptions.value;
 
-  if (valueName === "") {
-    alert("Name must be filled out");
-  } else if (valueAuthor === "") {
-    alert("Author must be filled out");
-  } else if (valueName !== "" && valueAuthor !== "") {
-    const payload = {
-      bookName: valueName,
-      author: valueAuthor,
-      topic: valueSelected,
-    };
+  const payload = {
+    bookName: valueName,
+    author: valueAuthor,
+    topic: valueSelected,
+  };
 
-    const newListBook = [...books, payload];
+  const newListBook = [...books, payload];
 
-    books = newListBook;
+  books = newListBook;
 
-    console.log("NEW LIST BOOKS CREATED: ", newListBook);
+  console.log("NEW LIST BOOKS CREATED: ", newListBook);
 
-    const tableBody = document.getElementById("table-body");
-    tableBody.innerHTML = "";
+  const tableBody = document.getElementById("table-body");
+  tableBody.innerHTML = "";
 
-    renderListBooks(newListBook);
+  renderListBooks(newListBook);
 
-    renderActionRow();
+  renderActionRow();
 
-    modalCreate.style.display = "none";
-  }
+  modalCreate.style.display = "none";
 };
 
 btnDeleteBook.onclick = (event) => {

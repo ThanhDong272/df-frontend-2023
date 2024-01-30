@@ -56,8 +56,8 @@
             <h2>Add book</h2>
             <span id="closeCreate" class="close">&times;</span>
           </div>
-          <div class="input-container">
-            <p>Name</p>
+          <form onsubmit="handleCreateBook()">
+            <label for="name">Name</label>
             <input
               id="inputName"
               class="input-common"
@@ -65,9 +65,10 @@
               value=""
               name="name"
               placeholder="Name"
+              autofocus
               required
             />
-            <p>Author</p>
+            <label for="author">Author</label>
             <input
               id="inputAuthor"
               class="input-common"
@@ -77,16 +78,18 @@
               placeholder="Author"
               required
             />
-            <p>Topic</p>
+            <label for="topic">Topic</label>
             <select id="topicDropdown">
               <option value="Programming" selected>Programming</option>
               <option value="Database">Database</option>
               <option value="Devops">Devops</option>
             </select>
             <div class="container-end">
-              <button id="createBook" class="btn-positive">Create</button>
+              <button type="submit" id="createBook" class="btn-positive">
+                Create
+              </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div id="modalDeleteBook" class="modal">
