@@ -1,14 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js" defer></script>
     <title>Bookstore</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
-
   <body>
-    Hello world
-    <script src="script.js"></script>
+    <header>
+      <div class="top">
+        <h1>Bookstore</h1>
+        <div class="profile-container">
+          <div class="img-circle">
+            <img
+              src="https://cdn.icon-icons.com/icons2/3054/PNG/512/account_profile_user_icon_190494.png"
+              alt="profile"
+            />
+          </div>
+          <p>John Doe</p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="book-function-container">
+          <input
+            id="searchBook"
+            class="input-common"
+            type="text"
+            value=""
+            name="search"
+            placeholder="Search books"
+            onchange="handleChangeSearch()"
+          />
+          <button id="createBookModal" class="btn-positive">Add book</button>
+        </div>
+        <div class="table-container">
+          <table id="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Topic</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="modalCreateBook" class="modal">
+        <div class="modal-create-content">
+          <div class="top-modal">
+            <h2>Add book</h2>
+            <span id="closeCreate" class="close">&times;</span>
+          </div>
+          <div class="input-container">
+            <p>Name</p>
+            <input
+              id="inputName"
+              class="input-common"
+              type="text"
+              value=""
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <p>Author</p>
+            <input
+              id="inputAuthor"
+              class="input-common"
+              type="text"
+              value=""
+              name="author"
+              placeholder="Author"
+              required
+            />
+            <p>Topic</p>
+            <select id="topicDropdown">
+              <option value="Programming" selected>Programming</option>
+              <option value="Database">Database</option>
+              <option value="Devops">Devops</option>
+            </select>
+            <div class="container-end">
+              <button id="createBook" class="btn-positive">Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="modalDeleteBook" class="modal">
+        <div class="modal-delete-content">
+          <span id="closeDelete" class="close">&times;</span>
+          <div class="delete-container">
+            <h2>Delete book</h2>
+            <p>
+              Do you want to delete
+              <span id="bookName" class="text-bold"></span> book?
+            </p>
+            <div class="btn-row">
+              <button id="deleteBook" class="btn-negative">Delete</button>
+              <button id="cancelDeleteBook" class="btn-positive">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>
